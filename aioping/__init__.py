@@ -228,8 +228,8 @@ async def ping(dest_addr, timeout=10):
 
     loop = asyncio.get_event_loop()
     info = await loop.getaddrinfo(dest_addr, 0)
-    family = info[2][0]
-    addr = info[2][4]
+    family = info[0][0]
+    addr = info[0][4]
 
     if family == socket.AddressFamily.AF_INET:
         icmp = proto_icmp
